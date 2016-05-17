@@ -7,15 +7,12 @@ SHIFT = 64 - 41
 
 class Druuid(object):
     def __init__(self, druuid=None):
-        if druuid:
-            self.druuid = druuid
-        else:
-            self._gen()
+        self.druuid = druuid if druuid else self._gen()
 
     def _gen(self):
         ms = int(round(time.time() * 1e3))
         rand = int(round(random.SystemRandom().random() * 1e16))
-        self.druuid = ms << SHIFT | rand % (2 ** SHIFT)
+        return ms << SHIFT | rand % (2 ** SHIFT)
 
     @property
     def time(self):
