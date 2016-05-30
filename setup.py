@@ -7,7 +7,7 @@ def read(fname):
 
 setup(
     name='Druuid',
-    version='0.1',
+    version='0.1.1',
     description='A time relative identifier',
     long_description=read('README.md'),
     license='MIT',
